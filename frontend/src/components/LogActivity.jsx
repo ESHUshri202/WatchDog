@@ -8,7 +8,11 @@ const LogActivity = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/log-acitivity");
+        const response = await fetch("http://127.0.0.1:5000/log-acitivity",{
+          headers:{
+            Authorization: localStorage.getItem("adminToken"),
+          }
+        });
         const data = await response.json();
         console.log(data);
         setActivity(data);

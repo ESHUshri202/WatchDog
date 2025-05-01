@@ -5,7 +5,11 @@ const ListEmployee = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/list-employees');
+        const response = await fetch('http://127.0.0.1:5000/list-employees',{
+          headers:{
+            Authorization: localStorage.getItem("adminToken"),
+          }
+        });
         const data = await response.json();
         console.log(data);
         setEmployees(data); // Store data in state

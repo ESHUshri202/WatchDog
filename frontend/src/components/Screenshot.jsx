@@ -8,7 +8,12 @@ const Screenshot = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/screenshot");
+        const token = localStorage.getItem("adminToken");
+        const response = await fetch("http://127.0.0.1:5000/screenshot",{
+          headers:{
+            Authorization: token,
+          }
+        });
         const data = await response.json();
         console.log("Fetched screenshot data:", data);
 
