@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Recent Activities</h2>
+    <ul>
+        {% for act in activities %}
+            <li>{{ act.timestamp }} - Employee {{ act.employee_id }}: {{ act.process_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Recent Screenshots</h2>
+    {% for ss in screenshots %}
+        <div>
+            <p>{{ ss.timestamp }} - Employee {{ ss.employee_id }}</p>
+            <img src="{{ ss.file_path }}" width="300">
+        </div>
+    {% endfor %}
+</body>
+</html>
